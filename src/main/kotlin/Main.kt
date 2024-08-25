@@ -7,7 +7,7 @@ import models.Anao
 import services.RacaStrategy
 
 fun main() {
-    println("\n***Welcome to DUNGEONS & DRAGONS Game***")
+    println("\n**Welcome to DUNGEONS & DRAGONS Game**")
 
     // Instância de DistribuicaoAtributos para usar a tabela de pontos
     val distribuicao = DistribuicaoAtributos()
