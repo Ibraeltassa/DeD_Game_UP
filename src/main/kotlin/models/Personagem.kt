@@ -1,10 +1,13 @@
 package models
 
-import services.RacaStrategy // Certifique-se de importar a interface RacaStrategy
+import services.RacaStrategy
+import services.Elfo
+import services.Humano
+import models.Anao
 
 class Personagem(
     val nome: String,
-    val raca: RacaStrategy, // Mude para RacaStrategy
+    val raca: RacaStrategy,
     var forca: Int,
     var destreza: Int,
     var constituicao: Int,
@@ -24,6 +27,7 @@ class Personagem(
     fun aplicarBonusRacial() {
         val atributos = Atributos(forca, destreza, constituicao, inteligencia, sabedoria, carisma)
         raca.aplicarBonus(atributos)
+
         // Atualiza os atributos do personagem
         forca = atributos.forca
         destreza = atributos.destreza
@@ -31,5 +35,21 @@ class Personagem(
         inteligencia = atributos.inteligencia
         sabedoria = atributos.sabedoria
         carisma = atributos.carisma
+    }
+
+    // Função para exibir os bônus raciais aplicados
+    fun mostrarBonusRacial() {
+        println("\nBônus Racial Aplicado:")
+
+        if (raca is Elfo) println("Destreza: +2")
+        if (raca is Humano) {
+            println("Força: +1")
+            println("Destreza: +1")
+            println("Constituição: +1")
+            println("Inteligência: +1")
+            println("Sabedoria: +1")
+            println("Carisma: +1")
+        }
+        if (raca is Anao) println("Constituição: +2")
     }
 }

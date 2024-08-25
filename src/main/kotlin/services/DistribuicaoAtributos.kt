@@ -4,10 +4,10 @@ import models.Atributos
 
 class DistribuicaoAtributos {
 
-    private val pontosTotais = 27 // Número máximo de pontos disponíveis para distribuir
+    val pontosTotais = 27 // Número máximo de pontos disponíveis para distribuir
 
     // Tabela de custo de pontos para cada valor de atributo
-    private val custoPontos = mapOf(
+    val custoPontos = mapOf(
         8 to 0,
         9 to 1,
         10 to 2,
@@ -17,6 +17,13 @@ class DistribuicaoAtributos {
         14 to 7,
         15 to 9
     )
+
+    fun mostrarTabelaPontos() {
+        println("\nTabela de Custo de Pontos:")
+        custoPontos.forEach { (valor, custo) ->
+            println("Valor: $valor - Custo: $custo pontos")
+        }
+    }
 
     // Distribui os pontos nos atributos, verificando se o total gasto é permitido
     fun distribuirPontos(atributos: Atributos): Boolean {
