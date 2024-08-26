@@ -41,15 +41,28 @@ class Personagem(
     fun mostrarBonusRacial() {
         println("\nBônus Racial Aplicado:")
 
-        if (raca is Elfo) println("Destreza: +2")
-        if (raca is Humano) {
-            println("Força: +1")
-            println("Destreza: +1")
-            println("Constituição: +1")
-            println("Inteligência: +1")
-            println("Sabedoria: +1")
-            println("Carisma: +1")
+        when (raca) {
+            is Elfo -> println("Destreza: +2")
+            is Humano -> {
+                println("Força: +1")
+                println("Destreza: +1")
+                println("Constituição: +1")
+                println("Inteligência: +1")
+                println("Sabedoria: +1")
+                println("Carisma: +1")
+            }
+            is Anao -> println("Constituição: +2")
+            is Orc -> {
+                println("Força: +2")
+                println("Constituição: +1")
+            }
+            is Gnomo -> {
+                println("Inteligência: +2")
+            }
+            is MeioElfo -> {
+                println("Carisma: +2")
+            }
         }
-        if (raca is Anao) println("Constituição: +2")
     }
+
 }

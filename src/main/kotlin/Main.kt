@@ -4,6 +4,9 @@ import services.DistribuicaoAtributos
 import services.Elfo
 import services.Humano
 import models.Anao
+import models.Orc
+import models.Gnomo
+import models.MeioElfo
 import services.RacaStrategy
 
 fun main() {
@@ -21,17 +24,24 @@ fun main() {
         println("1 - Elfo")
         println("2 - Humano")
         println("3 - Anão")
+        println("4 - Orc")
+        println("5 - Gnomo")
+        println("6 - Meio-Elfo")
         print("Digite o número correspondente à raça escolhida: ")
         return when (readLine()) {
             "1" -> Elfo()
             "2" -> Humano()
             "3" -> Anao()
+            "4" -> Orc()
+            "5" -> Gnomo()
+            "6" -> MeioElfo()
             else -> {
                 println("Opção inválida. Humano selecionado por padrão.")
                 Humano()
             }
         }
     }
+
 
     // Função para escolher os atributos do personagem
     fun escolherAtributos(): Atributos {
